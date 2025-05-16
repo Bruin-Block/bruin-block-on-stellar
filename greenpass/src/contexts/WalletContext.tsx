@@ -62,8 +62,15 @@ export const WalletProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     checkFreighterAvailability();
   }, []);
 
-  // Connect wallet function
+  // Connect wallet function - Always use demo wallet for this hackathon
   const connectWallet = async () => {
+    // DEMO MODE: Always connect with a fake wallet
+    console.log('Using demo wallet for hackathon');
+    setPublicKey('GBLT5IEYSXMRJT7NVSM7HJGT5FJRQZNNAQMKLMCW6DCEMK5XVDGP5C7A');
+    setIsConnected(true);
+    
+    // The code below is commented out since we're always using the demo wallet
+    /*
     if (!isFreighterAvailable) {
       window.open('https://www.freighter.app/', '_blank');
       return;
@@ -93,6 +100,7 @@ export const WalletProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     } catch (error) {
       console.error('Error connecting wallet:', error);
     }
+    */
   };
 
   // Disconnect wallet function
